@@ -33,3 +33,33 @@ vowel_count = sum(1 for char in text.lower() if char in "aeiou") #	Used to count
 
 # TREASURE GAME 
 
+secret_number = random.randint(1, 100) #	Used to generate a random number between 1 and 100.
+attempts = [] #	Used to store the number of attempts made to guess the secret number.
+found = False #	Used to check if the secret number has been found.
+for attempt in range(1, 6): #	Used to simulate 5 attempts to guess the secret number.
+    guess = random.randint(1, 100) #	Used to generate a random number between 1 and 100.
+    attempts.append(f"Attempt {attempt}: {guess}") #	Used to store the number of attempts made to guess the secret number.
+    if guess == secret_number: #	Used to check if the guess is equal to the secret number.
+        found = True #	Used to check if the secret number has been found.
+        break #	Used to exit the loop if the secret number has been found.
+
+if found: #	Used to check if the secret number has been found.
+    treasure_result = f"You found the treasure in {attempt + 1} attempts!" #	Used to display a message indicating that the treasure has been found.
+else: 
+    treasure_result = f"You failed to find the treasure. The secret number was {secret_number}." #	Used to display a message indicating that the treasure has been not found.
+
+# RESULT 
+
+result = { #	Used to create a dictionary with the results.
+    "number_result": number_result, #	Used to store the result of the number operation.
+    "binary_text": binary_text, #	Used to store the binary representation of the text.
+    "vowel_count": vowel_count,  #	Used to store the count of vowels in the text.
+    "treasure_result": treasure_result, #	Used to store the result of the treasure game.
+    "attempts": attempts #	Used to store the number of attempts made to guess the secret number.
+}
+
+print("Content-Type: application/json\n") #	Used to specify the content type of the response.
+print(json.dumps(result)) #	Used to convert the dictionary into a JSON string and print it.
+
+
+#A este punto el codigo no me funciona :v 
