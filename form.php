@@ -1,92 +1,58 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Treasure Hunt</title>
     <style>
-      
         body {
+            background-color: #f8c5e0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg,rgb(175, 76, 112),rgb(250, 138, 217));
-            color: white;
             text-align: center;
-            padding: 20px;
         }
-
-        .container {
+        form {
             background: white;
-            color: #333;
-            max-width: 500px;
-            margin: 40px auto;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
+            display: inline-block;
+            box-shadow: 0px 0px 10px gray;
         }
-
-        h2 {
-            color:rgb(125, 46, 101);
-            font-size: 24px;
-        }
-
-        label {
-            font-size: 18px;
-            display: block;
-            margin-top: 15px;
-        }
-
-        input[type="number"],
-        input[type="text"] {
-            width: 90%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
+        input {
+            margin: 5px;
+            padding: 8px;
+            border: 1px solid gray;
             border-radius: 5px;
-            font-size: 16px;
         }
-
-        input[type="submit"] {
-            background:rgb(249, 173, 234);
-            color: white;
+        button {
+            background-color: pink;
+            padding: 10px;
             border: none;
-            padding: 12px 20px;
-            font-size: 18px;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
-            transition: background 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background: #2E7D32;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                width: 90%;
-                padding: 15px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>Welcome to the Interactive Treasure Hunt! 🏆</h2>
-        <p>Enter a number and a secret word to start your adventure.</p>
+    <h2>Welcome to the Interactive Treasure Hunt! 🏆</h2>
+    <p>Enter a number, a secret word, and five guesses to find the treasure.</p>
 
-        <form action="process.php" method="post">
-            <label for="number">Enter a number  (e.g., their birth year):</label>
-            <input type="number" name="number" required min="1">
+    <form action="process.php" method="post">
+        <label for="number">Enter a number (e.g., birth year):</label>
+        <input type="number" name="number" required><br><br>
 
-            <label for="text">Enter a secret word (e.g., their name or a secret word): </label>
-            <input type="text" name="text" required>
+        <label for="text">Enter a secret word:</label>
+        <input type="text" name="text" required><br><br>
 
-            <input type="submit" value="Solve the Puzzle">
-        </form>
-    </div>
+        <h3>Enter your five guesses for the treasure hunt (1-100):</h3>
+        <input type="number" name="guess1" required min="1" max="100"><br>
+        <input type="number" name="guess2" required min="1" max="100"><br>
+        <input type="number" name="guess3" required min="1" max="100"><br>
+        <input type="number" name="guess4" required min="1" max="100"><br>
+        <input type="number" name="guess5" required min="1" max="100"><br><br>
+
+        <button type="submit">Solve the Puzzle</button>
+    </form>
 
 </body>
 </html>
-
