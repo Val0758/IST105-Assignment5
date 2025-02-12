@@ -1,5 +1,4 @@
 <?php
-// Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
 
     // Validate input data
@@ -17,11 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $guesses[] = escapeshellarg($_POST["guess$i"]);
     }
 
-    // Execute `process.py` with user guesses
+
     $cmd = "python3 process.py $number $text " . implode(" ", $guesses) . " 2>&1";
     $output = shell_exec($cmd);
 
-    // Remove warnings and extract valid JSON
+
     $output_lines = explode("\n", trim($output));
     foreach ($output_lines as $line) {
         if (str_starts_with($line, "{")) { // Find JSON line
